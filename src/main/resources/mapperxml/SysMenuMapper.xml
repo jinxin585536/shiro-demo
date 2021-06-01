@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.SysMenuMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.model.SysMenu">
+    <!--@mbg.generated-->
+    <!--@Table SYS_MENU-->
+    <id column="M_ID" jdbcType="VARCHAR" property="mId" />
+    <result column="M_NAME" jdbcType="VARCHAR" property="mName" />
+    <result column="P_ID" jdbcType="VARCHAR" property="pId" />
+    <result column="M_ADDRESS" jdbcType="VARCHAR" property="mAddress" />
+    <result column="ICON" jdbcType="VARCHAR" property="icon" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    M_ID, M_NAME, P_ID, M_ADDRESS, ICON
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_MENU
+    where M_ID = #{mId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from SYS_MENU
+    where M_ID = #{mId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.model.SysMenu">
+    <!--@mbg.generated-->
+    insert into SYS_MENU (M_ID, M_NAME, P_ID, 
+      M_ADDRESS, ICON)
+    values (#{mId,jdbcType=VARCHAR}, #{mName,jdbcType=VARCHAR}, #{pId,jdbcType=VARCHAR}, 
+      #{mAddress,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.model.SysMenu">
+    <!--@mbg.generated-->
+    insert into SYS_MENU
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mId != null">
+        M_ID,
+      </if>
+      <if test="mName != null">
+        M_NAME,
+      </if>
+      <if test="pId != null">
+        P_ID,
+      </if>
+      <if test="mAddress != null">
+        M_ADDRESS,
+      </if>
+      <if test="icon != null">
+        ICON,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mId != null">
+        #{mId,jdbcType=VARCHAR},
+      </if>
+      <if test="mName != null">
+        #{mName,jdbcType=VARCHAR},
+      </if>
+      <if test="pId != null">
+        #{pId,jdbcType=VARCHAR},
+      </if>
+      <if test="mAddress != null">
+        #{mAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null">
+        #{icon,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.model.SysMenu">
+    <!--@mbg.generated-->
+    update SYS_MENU
+    <set>
+      <if test="mName != null">
+        M_NAME = #{mName,jdbcType=VARCHAR},
+      </if>
+      <if test="pId != null">
+        P_ID = #{pId,jdbcType=VARCHAR},
+      </if>
+      <if test="mAddress != null">
+        M_ADDRESS = #{mAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null">
+        ICON = #{icon,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where M_ID = #{mId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.model.SysMenu">
+    <!--@mbg.generated-->
+    update SYS_MENU
+    set M_NAME = #{mName,jdbcType=VARCHAR},
+      P_ID = #{pId,jdbcType=VARCHAR},
+      M_ADDRESS = #{mAddress,jdbcType=VARCHAR},
+      ICON = #{icon,jdbcType=VARCHAR}
+    where M_ID = #{mId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.SysUserMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.model.SysUser">
+    <!--@mbg.generated-->
+    <!--@Table SYS_USER-->
+    <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="D_ID" jdbcType="VARCHAR" property="dId" />
+    <result column="P_ID" jdbcType="VARCHAR" property="pId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="U_PHONE" jdbcType="VARCHAR" property="uPhone" />
+    <result column="PASSWD" jdbcType="VARCHAR" property="passwd" />
+    <result column="U_EMAIL" jdbcType="VARCHAR" property="uEmail" />
+    <result column="U_FLAG" jdbcType="DECIMAL" property="uFlag" />
+    <result column="U_CODE" jdbcType="VARCHAR" property="uCode" />
+    <result column="ORGANIZATION" jdbcType="VARCHAR" property="organization" />
+    <result column="SALT" jdbcType="VARCHAR" property="salt" />
+    <result column="LEADER" jdbcType="VARCHAR" property="leader" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="SEEYON_DEPT_ID" jdbcType="VARCHAR" property="seeyonDeptId" />
+    <result column="IS_ADMIN" jdbcType="DECIMAL" property="isAdmin" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    USER_ID, D_ID, P_ID, USER_NAME, U_PHONE, PASSWD, U_EMAIL, U_FLAG, U_CODE, ORGANIZATION, 
+    SALT, LEADER, CREATE_TIME, SEEYON_DEPT_ID, IS_ADMIN
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_USER
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from SYS_USER
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.model.SysUser">
+    <!--@mbg.generated-->
+    insert into SYS_USER (USER_ID, D_ID, P_ID, 
+      USER_NAME, U_PHONE, PASSWD, 
+      U_EMAIL, U_FLAG, U_CODE, 
+      ORGANIZATION, SALT, LEADER, 
+      CREATE_TIME, SEEYON_DEPT_ID, IS_ADMIN
+      )
+    values (#{userId,jdbcType=VARCHAR}, #{dId,jdbcType=VARCHAR}, #{pId,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{uPhone,jdbcType=VARCHAR}, #{passwd,jdbcType=VARCHAR}, 
+      #{uEmail,jdbcType=VARCHAR}, #{uFlag,jdbcType=DECIMAL}, #{uCode,jdbcType=VARCHAR}, 
+      #{organization,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{leader,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{seeyonDeptId,jdbcType=VARCHAR}, #{isAdmin,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.model.SysUser">
+    <!--@mbg.generated-->
+    insert into SYS_USER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="dId != null">
+        D_ID,
+      </if>
+      <if test="pId != null">
+        P_ID,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="uPhone != null">
+        U_PHONE,
+      </if>
+      <if test="passwd != null">
+        PASSWD,
+      </if>
+      <if test="uEmail != null">
+        U_EMAIL,
+      </if>
+      <if test="uFlag != null">
+        U_FLAG,
+      </if>
+      <if test="uCode != null">
+        U_CODE,
+      </if>
+      <if test="organization != null">
+        ORGANIZATION,
+      </if>
+      <if test="salt != null">
+        SALT,
+      </if>
+      <if test="leader != null">
+        LEADER,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="seeyonDeptId != null">
+        SEEYON_DEPT_ID,
+      </if>
+      <if test="isAdmin != null">
+        IS_ADMIN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="dId != null">
+        #{dId,jdbcType=VARCHAR},
+      </if>
+      <if test="pId != null">
+        #{pId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="uPhone != null">
+        #{uPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null">
+        #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="uEmail != null">
+        #{uEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="uFlag != null">
+        #{uFlag,jdbcType=DECIMAL},
+      </if>
+      <if test="uCode != null">
+        #{uCode,jdbcType=VARCHAR},
+      </if>
+      <if test="organization != null">
+        #{organization,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="leader != null">
+        #{leader,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="seeyonDeptId != null">
+        #{seeyonDeptId,jdbcType=VARCHAR},
+      </if>
+      <if test="isAdmin != null">
+        #{isAdmin,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.model.SysUser">
+    <!--@mbg.generated-->
+    update SYS_USER
+    <set>
+      <if test="dId != null">
+        D_ID = #{dId,jdbcType=VARCHAR},
+      </if>
+      <if test="pId != null">
+        P_ID = #{pId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="uPhone != null">
+        U_PHONE = #{uPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null">
+        PASSWD = #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="uEmail != null">
+        U_EMAIL = #{uEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="uFlag != null">
+        U_FLAG = #{uFlag,jdbcType=DECIMAL},
+      </if>
+      <if test="uCode != null">
+        U_CODE = #{uCode,jdbcType=VARCHAR},
+      </if>
+      <if test="organization != null">
+        ORGANIZATION = #{organization,jdbcType=VARCHAR},
+      </if>
+      <if test="salt != null">
+        SALT = #{salt,jdbcType=VARCHAR},
+      </if>
+      <if test="leader != null">
+        LEADER = #{leader,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="seeyonDeptId != null">
+        SEEYON_DEPT_ID = #{seeyonDeptId,jdbcType=VARCHAR},
+      </if>
+      <if test="isAdmin != null">
+        IS_ADMIN = #{isAdmin,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.model.SysUser">
+    <!--@mbg.generated-->
+    update SYS_USER
+    set D_ID = #{dId,jdbcType=VARCHAR},
+      P_ID = #{pId,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      U_PHONE = #{uPhone,jdbcType=VARCHAR},
+      PASSWD = #{passwd,jdbcType=VARCHAR},
+      U_EMAIL = #{uEmail,jdbcType=VARCHAR},
+      U_FLAG = #{uFlag,jdbcType=DECIMAL},
+      U_CODE = #{uCode,jdbcType=VARCHAR},
+      ORGANIZATION = #{organization,jdbcType=VARCHAR},
+      SALT = #{salt,jdbcType=VARCHAR},
+      LEADER = #{leader,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      SEEYON_DEPT_ID = #{seeyonDeptId,jdbcType=VARCHAR},
+      IS_ADMIN = #{isAdmin,jdbcType=DECIMAL}
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+  <select id="listPermissions" resultType="java.lang.String">
+    select P_ID
+    from SYS_USER_PERMISSION
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByuCode" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from SYS_USER
+    where U_CODE = #{uCode,jdbcType=VARCHAR}
+  </select>
+</mapper>

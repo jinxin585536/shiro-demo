@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.SysPermissionMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.model.SysPermission">
+    <!--@mbg.generated-->
+    <!--@Table SYS_PERMISSION-->
+    <id column="P_ID" jdbcType="VARCHAR" property="pId" />
+    <result column="P_NAME" jdbcType="VARCHAR" property="pName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    P_ID, P_NAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_PERMISSION
+    where P_ID = #{pId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from SYS_PERMISSION
+    where P_ID = #{pId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.model.SysPermission">
+    <!--@mbg.generated-->
+    insert into SYS_PERMISSION (P_ID, P_NAME)
+    values (#{pId,jdbcType=VARCHAR}, #{pName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.model.SysPermission">
+    <!--@mbg.generated-->
+    insert into SYS_PERMISSION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pId != null">
+        P_ID,
+      </if>
+      <if test="pName != null">
+        P_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pId != null">
+        #{pId,jdbcType=VARCHAR},
+      </if>
+      <if test="pName != null">
+        #{pName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.model.SysPermission">
+    <!--@mbg.generated-->
+    update SYS_PERMISSION
+    <set>
+      <if test="pName != null">
+        P_NAME = #{pName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where P_ID = #{pId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.model.SysPermission">
+    <!--@mbg.generated-->
+    update SYS_PERMISSION
+    set P_NAME = #{pName,jdbcType=VARCHAR}
+    where P_ID = #{pId,jdbcType=VARCHAR}
+  </update>
+</mapper>
